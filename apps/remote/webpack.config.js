@@ -57,7 +57,11 @@ module.exports = {
         '@angular/common': { singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
         '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
         '@angular/router': { singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
-        '@angular/material': { singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
+        "@angular/platform-browser": { strictVersion: true, requiredVersion: '12.2.13' },
+        "@angular/cdk": { eager: true, strictVersion: true, requiredVersion: '12.2.13' },
+        '@angular/material': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
+        '@angular/material/core': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
+        '@angular/material/datepicker': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
 
         ...sharedMappings.getDescriptors(),
       },
