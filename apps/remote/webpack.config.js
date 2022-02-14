@@ -53,15 +53,18 @@ module.exports = {
       // },
 
       shared: {
-        '@angular/core': { singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
-        '@angular/common': { singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
-        '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
-        '@angular/router': { singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
-        "@angular/platform-browser": { strictVersion: true, requiredVersion: '12.2.13' },
+        '@angular/core': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
+        '@angular/common': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
+        '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
+        '@angular/router': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
+        "@angular/platform-browser": { strictVersion: true, requiredVersion: '12.2.13', eager: true },
         "@angular/cdk": { eager: true, strictVersion: true, requiredVersion: '12.2.13' },
         '@angular/material': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
         '@angular/material/core': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
         '@angular/material/datepicker': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
+        '@angular/material/input': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
+        '@angular/material/form-field': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
+        '@angular/forms': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
 
         ...sharedMappings.getDescriptors(),
       },

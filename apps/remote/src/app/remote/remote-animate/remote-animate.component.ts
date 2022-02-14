@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'remote-animate-app',
@@ -30,6 +31,7 @@ import { Component } from '@angular/core';
 export class RemoteAnimateComponent {
   title = 'remote-animate';
   isOpen = true;
+  control = new FormControl('');
 
   toggle() {
     this.isOpen = !this.isOpen;
