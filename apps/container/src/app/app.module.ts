@@ -1,7 +1,5 @@
-import { MatInputModule } from '@angular/material/input';
+import { MaterialModule } from '@lib/material';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,9 +11,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatInputModule
+    MaterialModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

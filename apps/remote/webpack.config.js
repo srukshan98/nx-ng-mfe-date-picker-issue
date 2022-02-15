@@ -1,9 +1,12 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const mf = require('@angular-architects/module-federation/webpack');
 const path = require('path');
+const { MaterialSharedLibs } = require('../../mf-material.shared');
 
 const sharedMappings = new mf.SharedMappings();
-sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), []);
+sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), [
+  '@lib/material'
+]);
 
 module.exports = {
   output: {
@@ -52,22 +55,16 @@ module.exports = {
 
       // },
 
-      shared: {
-        '@angular/core': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
-        '@angular/common': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
-        '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
-        '@angular/router': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
-        "@angular/platform-browser": { strictVersion: true, requiredVersion: '12.2.13', eager: true },
-        "@angular/cdk": { eager: true, strictVersion: true, requiredVersion: '12.2.13' },
-        '@angular/material': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
-        '@angular/material/core': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
-        '@angular/material/datepicker': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
-        '@angular/material/input': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
-        '@angular/material/form-field': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.2.13" },
-        '@angular/forms': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
-
-        ...sharedMappings.getDescriptors(),
-      },
+      shared: [
+        {
+          ...sharedMappings.getDescriptors(),
+        },
+        '@angular/core',
+        '@angular/common',
+        '@angular/common/http',
+        '@angular/router',
+        ...MaterialSharedLibs,
+      ],
     }),
     sharedMappings.getPlugin(),
   ],

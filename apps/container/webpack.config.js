@@ -1,9 +1,12 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const mf = require('@angular-architects/module-federation/webpack');
 const path = require('path');
+const { MaterialSharedLibs } = require('../../mf-material.shared');
 
 const sharedMappings = new mf.SharedMappings();
-sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), []);
+sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), [
+  '@lib/material'
+]);
 
 module.exports = {
   output: {
@@ -33,22 +36,17 @@ module.exports = {
 
       // },
 
-      shared: {
-        '@angular/core': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
-        '@angular/common': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
-        '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
-        '@angular/router': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
-        '@angular/material': { singleton: true, strictVersion: true, requiredVersion: "12.2.13", eager: true },
-        "@angular/platform-browser": { strictVersion: true, requiredVersion: '12.2.13', eager: true },
-        "@angular/cdk": { strictVersion: true, requiredVersion: '12.2.13', eager: true },
-        '@angular/material/core': { singleton: true, strictVersion: true, requiredVersion: "12.2.13", eager: true },
-        '@angular/material/datepicker': { singleton: true, strictVersion: true, requiredVersion: "12.2.13", eager: true },
-        '@angular/material/input': { singleton: true, strictVersion: true, requiredVersion: "12.2.13", eager: true },
-        '@angular/material/form-field': { singleton: true, strictVersion: true, requiredVersion: "12.2.13", eager: true },
-        '@angular/forms': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
+      shared: [
+        {
+          '@angular/core': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
+          '@angular/common': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
+          '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
+          '@angular/router': { singleton: true, strictVersion: true, requiredVersion: "12.0.0", eager: true },
 
-        ...sharedMappings.getDescriptors(),
-      },
+          ...sharedMappings.getDescriptors(),
+        },
+        ...MaterialSharedLibs,
+      ],
     }),
     sharedMappings.getPlugin(),
   ],

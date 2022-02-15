@@ -1,12 +1,20 @@
 {
   "version": 1,
-  "cli": { "defaultCollection": "@nrwl/angular" },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
   "defaultProject": "container",
   "schematics": {
     "@nrwl/angular": {
-      "application": { "linter": "eslint" },
-      "library": { "linter": "eslint" },
-      "storybook-configuration": { "linter": "eslint" }
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
     "@nrwl/angular:application": {
       "style": "scss",
@@ -19,7 +27,9 @@
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
-    "@nrwl/angular:component": { "style": "scss" }
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
   },
   "projects": {
     "container": {
@@ -87,7 +97,9 @@
               "browserTarget": "container:build:production",
               "extraWebpackConfig": "apps/container/webpack.prod.config.js"
             },
-            "development": { "browserTarget": "container:build:development" }
+            "development": {
+              "browserTarget": "container:build:development"
+            }
           },
           "defaultConfiguration": "development",
           "options": {
@@ -97,7 +109,9 @@
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": { "browserTarget": "container:build" }
+          "options": {
+            "browserTarget": "container:build"
+          }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -132,12 +146,16 @@
             "devServerTarget": "container:serve:development"
           },
           "configurations": {
-            "production": { "devServerTarget": "container:serve:production" }
+            "production": {
+              "devServerTarget": "container:serve:production"
+            }
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/container-e2e/**/*.{js,ts}"] }
+          "options": {
+            "lintFilePatterns": ["apps/container-e2e/**/*.{js,ts}"]
+          }
         }
       }
     },
@@ -228,7 +246,9 @@
               "browserTarget": "remote:build:production",
               "extraWebpackConfig": "apps/remote/webpack.prod.config.js"
             },
-            "development": { "browserTarget": "remote:build:development" }
+            "development": {
+              "browserTarget": "remote:build:development"
+            }
           },
           "defaultConfiguration": "development",
           "options": {
@@ -238,7 +258,9 @@
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": { "browserTarget": "remote:build" }
+          "options": {
+            "browserTarget": "remote:build"
+          }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -256,6 +278,46 @@
             "jestConfig": "apps/remote/jest.config.js",
             "passWithNoTests": true,
             "extraWebpackConfig": "apps/remote/webpack.config.js"
+          }
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "ng12-module-fed",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/material/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/material/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/material/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/material"],
+          "options": {
+            "jestConfig": "libs/material/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/material/src/**/*.ts",
+              "libs/material/src/**/*.html"
+            ]
           }
         }
       }

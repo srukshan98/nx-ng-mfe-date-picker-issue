@@ -1,24 +1,20 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@lib/material';
 import { RemoteAnimateComponent } from './remote-animate/remote-animate.component';
 import { RemoteComponent } from './remote.component';
 import { REMOTE_ROUTES } from './remote.routes';
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatDatepickerModule } from "@angular/material/datepicker";
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatInputModule } from "@angular/material/input";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [RemoteComponent, RemoteAnimateComponent],
     imports: [
         RouterModule.forChild(REMOTE_ROUTES),
+        MaterialModule,
         MatFormFieldModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
         FormsModule,
         ReactiveFormsModule,
-        MatInputModule
     ],
     providers: [],
     exports: [RemoteComponent],

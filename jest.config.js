@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/apps/remote',
     '<rootDir>/apps/remote2',
     '<rootDir>/apps/remote3',
+    '<rootDir>/libs/material',
   ],
 };
