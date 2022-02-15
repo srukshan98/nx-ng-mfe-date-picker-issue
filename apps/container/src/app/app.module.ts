@@ -1,3 +1,4 @@
+import { MatInputModule } from '@angular/material/input';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -14,6 +15,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatInputModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

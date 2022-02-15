@@ -46,6 +46,7 @@ module.exports = {
         '@angular/material/input': { singleton: true, strictVersion: true, requiredVersion: "12.2.13", eager: true },
         '@angular/material/form-field': { singleton: true, strictVersion: true, requiredVersion: "12.2.13", eager: true },
         '@angular/forms': { eager: true, singleton: true, strictVersion: true, requiredVersion: "12.0.0" },
+
         ...sharedMappings.getDescriptors(),
       },
     }),

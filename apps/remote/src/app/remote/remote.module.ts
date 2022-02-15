@@ -6,6 +6,7 @@ import { REMOTE_ROUTES } from './remote.routes';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from "@angular/material/input";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         MatDatepickerModule,
         MatNativeDateModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatInputModule
     ],
     providers: [],
     exports: [RemoteComponent],
